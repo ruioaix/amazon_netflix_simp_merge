@@ -21,5 +21,7 @@ with open('data/amazon000', 'r') as fo:
         name = parts[2].strip()
         cate = parts[3].strip()
             
-        if re.search("^[0-9a-zA-Z :]+$", name):
+        if re.search("^[0-9a-zA-Z :,&\'?!+\-./_=$%]+$", name):
             op.write("{}\t{}\t{}\t{}\n".format(pid, aid, name, cate));
+        else:
+            print name
