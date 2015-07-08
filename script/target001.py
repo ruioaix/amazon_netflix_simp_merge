@@ -29,6 +29,7 @@ print max(years.values()), min(years.values())
 level01 = []
 level02 = []
 level03 = []
+level04 = []
 
 op = open("target001", 'w')
 
@@ -41,9 +42,14 @@ for itemid in names.keys():
     elif re.search('^[ 0-9a-zA-Z:]+$', name):
         level02.append(name)
         op.write("{}\t{}\t{}\n".format(itemid, years[itemid], name))
-    elif re.search('^[ 0-9a-zA-Z\':.?/-]+&$', name):
+    elif re.search('^[0-9a-zA-Z :,&\'?!+\-./_=$%]+$', name):
         level03.append(name)
+        op.write("{}\t{}\t{}\n".format(itemid, years[itemid], name))
+    else:
+        level04.append(name)
+        print name
 
 print len(level01)
 print len(level02)
 print len(level03)
+print len(level04)

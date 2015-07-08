@@ -2,8 +2,6 @@
 # if there are two movies with same name and same year, both of them will be deleted.
 import re
 
-op = open('data/list003', 'w') 
-
 years = {}
 votes = {}
 ranks = {}
